@@ -1,5 +1,5 @@
 ---
 suites:
-    AssimtechMoney:
-        namespace: Assimtech\Money
-        psr4_prefix: Assimtech\Money
+    AssimtechFiat:
+        namespace: Assimtech\Fiat
+        psr4_prefix: Assimtech\Fiat

@@ -1,8 +1,8 @@
 {
-    "name": "assimtech/money",
+    "name": "assimtech/fiat",
     "type": "library",
     "description": "Money, Currency and Accounting",
-    "homepage": "https://github.com/assimtech/money",
+    "homepage": "https://github.com/assimtech/fiat",
     "license": "MIT",
     "require": {
         "php": ">=5.5.9",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Assimtech\\Money\\": "src"
+            "Assimtech\\Fiat\\": "src"
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Assimtech\Money;
+namespace Assimtech\Fiat;
 
 use Locale;
 use NumberFormatter;
@@ -19,7 +19,7 @@ class Money
 
     /**
      * @param float|integer $amount
-     * @param Currency|string $currency iso4217 currency
+     * @param Currency $currency iso4217 currency
      */
     public function __construct($amount, Currency $currency)
     {

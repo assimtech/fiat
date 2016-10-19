@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Assimtech\Money;
+namespace spec\Assimtech\Fiat;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Assimtech\Money\Currency;
+use Assimtech\Fiat\Currency;
 use Locale;
 
 class MoneySpec extends ObjectBehavior
@@ -21,7 +21,7 @@ class MoneySpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Assimtech\Money\Money');
+        $this->shouldHaveType('Assimtech\Fiat\Money');
     }
 
     function it_can_be_cast_to_string()

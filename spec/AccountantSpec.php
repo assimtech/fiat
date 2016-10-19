@@ -1,18 +1,18 @@
 <?php
 
-namespace spec\Assimtech\Money;
+namespace spec\Assimtech\Fiat;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Assimtech\Money\Money;
-use Assimtech\Money\Currency;
+use Assimtech\Fiat\Money;
+use Assimtech\Fiat\Currency;
 use InvalidArgumentException;
 
 class AccountantSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Assimtech\Money\Accountant');
+        $this->shouldHaveType('Assimtech\Fiat\Accountant');
     }
 
     function it_cant_missmatch_currencies(Money $money1, Money $money2)

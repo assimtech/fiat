@@ -1,22 +1,22 @@
 <?php
 
-namespace Assimtech\Money\Twig\Extension;
+namespace Assimtech\Fiat\Twig\Extension;
 
 use Twig_Extension;
 use Twig_SimpleFunction;
-use Assimtech\Money;
+use Assimtech\Fiat;
 
 class Accountant extends Twig_Extension
 {
     /**
-     * @var Money\Accountant $accountant
+     * @var Fiat\Accountant $accountant
      */
     protected $accountant;
 
     /**
-     * @param Money\Accountant $accountant
+     * @param Fiat\Accountant $accountant
      */
-    public function __construct(Money\Accountant $accountant)
+    public function __construct(Fiat\Accountant $accountant)
     {
         $this->accountant = $accountant;
     }
@@ -38,11 +38,11 @@ class Accountant extends Twig_Extension
     /**
      * $money1 + $money2
      *
-     * @param Money\Money $money1
-     * @param Money\Money $money2
-     * @return Money\Money
+     * @param Fiat\Money $money1
+     * @param Fiat\Money $money2
+     * @return Fiat\Money
      */
-    public function add(Money\Money $money1, Money\Money $money2)
+    public function add(Fiat\Money $money1, Fiat\Money $money2)
     {
         return $this->accountant->add($money1, $money2);
     }
@@ -50,11 +50,11 @@ class Accountant extends Twig_Extension
     /**
      * $money1 - $money2
      *
-     * @param Money\Money $money1
-     * @param Money\Money $money2
-     * @return Money\Money
+     * @param Fiat\Money $money1
+     * @param Fiat\Money $money2
+     * @return Fiat\Money
      */
-    public function subtract(Money\Money $money1, Money\Money $money2)
+    public function subtract(Fiat\Money $money1, Fiat\Money $money2)
     {
         return $this->accountant->subtract($money1, $money2);
     }
@@ -62,11 +62,11 @@ class Accountant extends Twig_Extension
     /**
      * $money * $fraction
      *
-     * @param Money\Money $money
+     * @param Fiat\Money $money
      * @param float|integer $fraction
-     * @return Money\Money
+     * @return Fiat\Money
      */
-    public function multiply(Money\Money $money, $fraction)
+    public function multiply(Fiat\Money $money, $fraction)
     {
         return $this->accountant->multiply($money, $fraction);
     }
@@ -74,18 +74,18 @@ class Accountant extends Twig_Extension
     /**
      * $money / $fraction
      *
-     * @param Money\Money $money
+     * @param Fiat\Money $money
      * @param float|integer $fraction
-     * @return Money\Money
+     * @return Fiat\Money
      */
-    public function divide(Money\Money $money, $fraction)
+    public function divide(Fiat\Money $money, $fraction)
     {
         return $this->accountant->divide($money, $fraction);
     }
 
     /**
-     * @param Money\Money[] $monies
-     * @return Money\Money
+     * @param Fiat\Money[] $monies
+     * @return Fiat\Money
      */
     public function sum(array $monies)
     {
@@ -97,6 +97,6 @@ class Accountant extends Twig_Extension
      */
     public function getName()
     {
-        return 'assimtech_money_accountant';
+        return 'assimtech_fiat_accountant';
     }
 }

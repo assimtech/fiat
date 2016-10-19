@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Assimtech\Money\Twig\Extension;
+namespace spec\Assimtech\Fiat\Twig\Extension;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Assimtech\Money\Accountant;
-use Assimtech\Money\Money;
+use Assimtech\Fiat\Accountant;
+use Assimtech\Fiat\Money;
 
 class AccountantSpec extends ObjectBehavior
 {
@@ -16,7 +16,7 @@ class AccountantSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Assimtech\Money\Twig\Extension\Accountant');
+        $this->shouldHaveType('Assimtech\Fiat\Twig\Extension\Accountant');
     }
 
     function it_exposes_functions()
@@ -67,6 +67,6 @@ class AccountantSpec extends ObjectBehavior
 
     function it_is_named()
     {
-        $this->getName()->shouldReturn('assimtech_money_accountant');
+        $this->getName()->shouldReturn('assimtech_fiat_accountant');
     }
 }

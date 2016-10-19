@@ -1,6 +1,6 @@
 <?php
 
-namespace Assimtech\Money;
+namespace Assimtech\Fiat;
 
 use Symfony\Component\Intl\Intl;
 

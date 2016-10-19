@@ -1,10 +1,11 @@
-# Money
+# Fiat
 
-[![Build Status](https://travis-ci.org/assimtech/money.svg?branch=master)](https://travis-ci.org/assimtech/money)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/assimtech/money/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/assimtech/money/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/assimtech/money/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/assimtech/money/?branch=master)
+[![Build Status](https://travis-ci.org/assimtech/fiat.svg?branch=master)](https://travis-ci.org/assimtech/fiat)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/assimtech/fiat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/assimtech/fiat/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/assimtech/fiat/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/assimtech/fiat/?branch=master)
 
-Provides models for representing Money and an Accountant performing arithmetic on Money without causing rounding errors
+Provides models for representing Money, Currency and an Accountant performing arithmetic on Money without causing rounding errors
+
 
 ** THIS REPOSITORY HAS BEEN MOVED TO [Assimtech\Fiat](https://github.com/assimtech/fiat) **
 
@@ -16,14 +17,14 @@ The last version of `Assimtech\Money` is `1.1.3`, `Assimtech\Fiat` follows on fr
 ### Currency
 
 ```php
-$usd = new Assimtech\Money\Currency('USD');
+$usd = new Assimtech\Fiat\Currency('USD');
 echo (string)$usd; // Outputs USD
 echo $usd->getFractionDigits(); // Outputs 2
 
-$jpy = new Assimtech\Money\Currency('JPY');
+$jpy = new Assimtech\Fiat\Currency('JPY');
 echo $jpy->getFractionDigits(); // Outputs 0
 
-$iqd = new Assimtech\Money\Currency('IQD');
+$iqd = new Assimtech\Fiat\Currency('IQD');
 echo $iqd->getFractionDigits(); // Outputs 3
 ```
 
@@ -32,7 +33,7 @@ echo $iqd->getFractionDigits(); // Outputs 3
 
 ```php
 // assuming Locale is en-US
-$money = new Money(pi(), $usd);
+$money = new Assimtech\Fiat\Money(pi(), $usd);
 echo (string)$money; // Outputs 3.14 USD
 echo $money->getFormattedAmount(); // Outputs 3.14
 echo $money->getFormattedAmount('de-DE'); // Outputs 3,14
@@ -42,7 +43,7 @@ echo $money->getFormattedAmount('de-DE'); // Outputs 3,14
 ## The Accountant
 
 ```php
-$accountant = new Assimtech\Money\Accountant();
+$accountant = new Assimtech\Fiat\Accountant();
 
 $threeUSD = $accountant->add($oneUSD, $twoUSD);
 
@@ -79,4 +80,4 @@ The accountant is also exposed as a Twig extension
 
 ## Frameworks
 
-Please see [MoneyBundle](https://github.com/assimtech/money-bundle) for integration with Symfony 2
+Please see [FiatBundle](https://github.com/assimtech/fiat-bundle) for integration with Symfony 2 / 3
