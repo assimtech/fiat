@@ -1,4 +1,3 @@
----
 suites:
     AssimtechFiat:
         namespace: Assimtech\Fiat

@@ -1,14 +1,11 @@
----
 suites:
     AssimtechFiat:
         namespace: Assimtech\Fiat
         psr4_prefix: Assimtech\Fiat
 
 extensions:
-    - PhpSpec\Extension\CodeCoverageExtension
-
-code_coverage:
-    format:
-        - clover
-    output:
-        clover: coverage/clover.xml
+    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+        format:
+            - clover
+        output:
+            clover: coverage/clover.xml

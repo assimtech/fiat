@@ -1,14 +1,11 @@
----
 suites:
     AssimtechFiat:
         namespace: Assimtech\Fiat
         psr4_prefix: Assimtech\Fiat
 
 extensions:
-    - PhpSpec\Extension\CodeCoverageExtension
-
-code_coverage:
-    format:
-        - html
-    output:
-        html: coverage
+    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+        format:
+            - html
+        output:
+            html: coverage
