@@ -2,10 +2,10 @@
 
 namespace spec\Assimtech\Fiat\Twig\Extension;
 
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Assimtech\Fiat\Accountant;
 use Assimtech\Fiat\Money;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 
 class AccountantSpec extends ObjectBehavior
 {

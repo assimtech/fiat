@@ -2,11 +2,11 @@
 
 namespace spec\Assimtech\Fiat;
 
+use Assimtech\Fiat\Currency;
+use Assimtech\Fiat\Money;
+use InvalidArgumentException;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Assimtech\Fiat\Money;
-use Assimtech\Fiat\Currency;
-use InvalidArgumentException;
 
 class AccountantSpec extends ObjectBehavior
 {

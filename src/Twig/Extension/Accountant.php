@@ -2,9 +2,9 @@
 
 namespace Assimtech\Fiat\Twig\Extension;
 
+use Assimtech\Fiat;
 use Twig_Extension;
 use Twig_SimpleFunction;
-use Assimtech\Fiat;
 
 class Accountant extends Twig_Extension
 {

@@ -2,10 +2,10 @@
 
 namespace spec\Assimtech\Fiat;
 
-use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Assimtech\Fiat\Currency;
 use Locale;
+use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 
 class MoneySpec extends ObjectBehavior
 {
