@@ -5,7 +5,7 @@
     "homepage": "https://github.com/assimtech/fiat",
     "license": "MIT",
     "require": {
-        "php": ">=5.5.9",
+        "php": "^5.6",
 
         "symfony/intl": "^3.0|^4.0",
         "twig/twig": "^1.0|^2.0"
@@ -14,7 +14,7 @@
         "sebastian/phpcpd": "^2.0|^3.0|^4.0",
         "squizlabs/php_codesniffer": "^3.4",
         "phpmd/phpmd": "^2.6",
-        "phpspec/phpspec": "^2.0|^3.0|^4.0|^5.0",
+        "phpspec/phpspec": "^3.0|^4.0|^5.0",
         "leanphp/phpspec-code-coverage": "^2.0|^3.0|^4.0"
     },
     "autoload": {
