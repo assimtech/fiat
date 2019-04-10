@@ -4,7 +4,7 @@ suites:
         psr4_prefix: Assimtech\Fiat
 
 extensions:
-    LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    - LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
         format:
             - html
         output:
