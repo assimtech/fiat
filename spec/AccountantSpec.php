@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Assimtech\Fiat;
 
 use Assimtech\Fiat\Currency;
@@ -10,13 +12,15 @@ use Prophecy\Argument;
 
 class AccountantSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function it_is_initializable(): void
     {
         $this->shouldHaveType('Assimtech\Fiat\Accountant');
     }
 
-    function it_cant_missmatch_currencies(Money $money1, Money $money2)
-    {
+    function it_cant_missmatch_currencies(
+        Money $money1,
+        Money $money2
+    ): void {
         $currency1 = new Currency('USD');
         $currency2 = new Currency('JPY');
 
@@ -32,15 +36,17 @@ class AccountantSpec extends ObjectBehavior
             ->shouldThrow(new InvalidArgumentException(
                 'Cannot work with monies of differing currencies (1.00 USD, 2 JPY)'
             ))
-            ->during('add', array(
+            ->during('add', [
                 $money1,
                 $money2
-            ))
+            ])
         ;
     }
 
-    function it_can_add(Money $money1, Money $money2)
-    {
+    function it_can_add(
+        Money $money1,
+        Money $money2
+    ): void {
         $currency = new Currency('USD');
 
         $money1->getAmount()->willReturn(1);
@@ -52,8 +58,10 @@ class AccountantSpec extends ObjectBehavior
         $this->add($money1, $money2)->shouldBeLike(new Money(3, $currency));
     }
 
-    function it_can_subtract(Money $money1, Money $money2)
-    {
+    function it_can_subtract(
+        Money $money1,
+        Money $money2
+    ): void {
         $currency = new Currency('USD');
 
         $money1->getAmount()->willReturn(1);
@@ -65,8 +73,9 @@ class AccountantSpec extends ObjectBehavior
         $this->subtract($money1, $money2)->shouldBeLike(new Money(-1, $currency));
     }
 
-    function it_can_multiply(Money $money)
-    {
+    function it_can_multiply(
+        Money $money
+    ): void {
         $currency = new Currency('USD');
 
         $money->getAmount()->willReturn(1);
@@ -77,8 +86,9 @@ class AccountantSpec extends ObjectBehavior
         $this->multiply($money, $fraction)->shouldBeLike(new Money(2.5, $currency));
     }
 
-    function it_can_divide(Money $money)
-    {
+    function it_can_divide(
+        Money $money
+    ): void {
         $currency = new Currency('USD');
 
         $money->getAmount()->willReturn(1);
@@ -89,8 +99,11 @@ class AccountantSpec extends ObjectBehavior
         $this->divide($money, $fraction)->shouldBeLike(new Money(0.33, $currency));
     }
 
-    function it_can_sum(Money $money1, Money $money2, Money $money3)
-    {
+    function it_can_sum(
+        Money $money1,
+        Money $money2,
+        Money $money3
+    ): void {
         $currency = new Currency('USD');
 
         $money1->getAmount()->willReturn(1);
@@ -102,24 +115,24 @@ class AccountantSpec extends ObjectBehavior
         $money3->getAmount()->willReturn(3);
         $money3->getCurrency()->willReturn($currency);
 
-        $this->sum(array(
+        $this->sum([
             $money1,
             $money2,
             $money3,
-        ))->shouldBeLike(new Money(6, $currency));
+        ])->shouldBeLike(new Money(6, $currency));
     }
 
-    function it_cant_sum_non_money()
+    function it_cant_sum_non_money(): void
     {
         $this
             ->shouldThrow(new InvalidArgumentException(
                 '$monies must be an array of Money'
             ))
-            ->during('sum', array(
-                array(
+            ->during('sum', [
+                [
                     1,
-                ),
-            ))
+                ],
+            ])
         ;
     }
 }

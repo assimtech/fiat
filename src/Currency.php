@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Assimtech\Fiat;
 
 use Symfony\Component\Intl\Intl;
@@ -11,40 +13,29 @@ class Currency
      */
     private $code;
 
-    /**
-     * @var integer $fractionDigits
-     */
     private $fractionDigits;
 
     /**
      * @param string $code ISO 4217 alpha3 currency code
      */
-    public function __construct($code)
-    {
+    public function __construct(
+        string $code
+    ) {
         $this->code = $code;
         $this->fractionDigits = Intl::getCurrencyBundle()->getFractionDigits($code);
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->code;
     }
 
-    /**
-     * @return string
-     */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
 
-    /**
-     * @return integer
-     */
-    public function getFractionDigits()
+    public function getFractionDigits(): int
     {
         return $this->fractionDigits;
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Assimtech\Fiat;
 
 use InvalidArgumentException;
@@ -7,12 +9,12 @@ use InvalidArgumentException;
 class Accountant
 {
     /**
-     * @param Money $money1
-     * @param Money $money2
      * @throws InvalidArgumentException
      */
-    protected function checkCurrenciesMatch(Money $money1, Money $money2)
-    {
+    protected function checkCurrenciesMatch(
+        Money $money1,
+        Money $money2
+    ): void {
         if ($money1->getCurrency()->getCode() !== $money2->getCurrency()->getCode()) {
             throw new InvalidArgumentException(sprintf(
                 'Cannot work with monies of differing currencies (%s, %s)',
@@ -24,13 +26,11 @@ class Accountant
 
     /**
      * $money1 + $money2
-     *
-     * @param Money $money1
-     * @param Money $money2
-     * @return Money
      */
-    public function add(Money $money1, Money $money2)
-    {
+    public function add(
+        Money $money1,
+        Money $money2
+    ): Money {
         $this->checkCurrenciesMatch($money1, $money2);
 
         return new Money(
@@ -41,13 +41,11 @@ class Accountant
 
     /**
      * $money1 - $money2
-     *
-     * @param Money $money1
-     * @param Money $money2
-     * @return Money
      */
-    public function subtract(Money $money1, Money $money2)
-    {
+    public function subtract(
+        Money $money1,
+        Money $money2
+    ): Money {
         $this->checkCurrenciesMatch($money1, $money2);
 
         return new Money(
@@ -59,12 +57,12 @@ class Accountant
     /**
      * $money * $fraction
      *
-     * @param Money $money
      * @param float|integer $fraction
-     * @return Money
      */
-    public function multiply(Money $money, $fraction)
-    {
+    public function multiply(
+        Money $money,
+        $fraction
+    ): Money {
         return new Money(
             $money->getAmount() * $fraction,
             $money->getCurrency()
@@ -74,12 +72,12 @@ class Accountant
     /**
      * $money / $fraction
      *
-     * @param Money $money
      * @param float|integer $fraction
-     * @return Money
      */
-    public function divide(Money $money, $fraction)
-    {
+    public function divide(
+        Money $money,
+        $fraction
+    ): Money {
         return new Money(
             $money->getAmount() / $fraction,
             $money->getCurrency()
@@ -88,10 +86,10 @@ class Accountant
 
     /**
      * @param Money[] $monies
-     * @return Money|null
      */
-    public function sum(array $monies)
-    {
+    public function sum(
+        array $monies
+    ): ?Money {
         $totalMoney = null;
 
         foreach ($monies as $money) {

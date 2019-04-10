@@ -49,11 +49,11 @@ $eightUSD = $accountant->multiply($fourUSD, 2);
 
 $threeUSD = $accountant->divide($nineUSD, 3);
 
-$sixUSD = $accountant->sum(array(
+$sixUSD = $accountant->sum([
     $oneUSD,
     $twoUSD,
     $threeUSD,
-));
+]);
 ```
 
 

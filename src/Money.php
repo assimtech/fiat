@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Assimtech\Fiat;
 
 use Locale;
@@ -7,30 +9,22 @@ use NumberFormatter;
 
 class Money
 {
-    /**
-     * @var float $amount
-     */
     private $amount;
-
-    /**
-     * @var Currency $currency
-     */
     private $currency;
 
     /**
      * @param float|integer $amount
      * @param Currency $currency iso4217 currency
      */
-    public function __construct($amount, Currency $currency)
-    {
+    public function __construct(
+        $amount,
+        Currency $currency
+    ) {
         $this->currency = $currency;
         $this->setAmount($amount);
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf(
             '%s %s',
@@ -40,30 +34,27 @@ class Money
     }
 
     /**
-     * @param float $amount
-     * @return self
+     * @param float|integer|string $amount
      */
-    public function setAmount($amount)
-    {
+    public function setAmount(
+        $amount
+    ): self {
         $this->amount = round($amount, $this->currency->getFractionDigits());
 
         return $this;
     }
 
-    /**
-     * @return float
-     */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->amount;
     }
 
     /**
      * @param string|null $locale if null, defaults to Locale::getDefault
-     * @return string
      */
-    public function getFormattedAmount($locale = null)
-    {
+    public function getFormattedAmount(
+        string $locale = null
+    ): string {
         if ($locale === null) {
             $locale = Locale::getDefault();
         }
@@ -76,10 +67,7 @@ class Money
         return $numberFormatter->format($this->amount);
     }
 
-    /**
-     * @return Currency
-     */
-    public function getCurrency()
+    public function getCurrency(): Currency
     {
         return $this->currency;
     }
