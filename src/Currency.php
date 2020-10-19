@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Assimtech\Fiat;
 
-use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl;
 
 class Currency
 {
@@ -22,7 +22,10 @@ class Currency
         string $code
     ) {
         $this->code = $code;
-        $this->fractionDigits = Intl::getCurrencyBundle()->getFractionDigits($code);
+        $this->fractionDigits = \class_exists(Intl\Currencies::class)
+            ? Intl\Currencies::getFractionDigits($code)
+            : Intl\Intl::getCurrencyBundle()->getFractionDigits($code)
+        ;
     }
 
     public function __toString(): string
