@@ -74,7 +74,7 @@ class Accountant extends AbstractExtension
     }
 
     /**
-     * @param Fiat\Money[] $monies
+     * @param array<Fiat\Money> $monies
      */
     public function sum(
         array $monies

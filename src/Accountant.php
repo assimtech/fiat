@@ -85,7 +85,7 @@ class Accountant
     }
 
     /**
-     * @param Money[] $monies
+     * @param array<Money> $monies
      */
     public function sum(
         array $monies

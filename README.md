@@ -76,4 +76,4 @@ The accountant is also exposed as a Twig extension
 
 ## Frameworks
 
-Please see [FiatBundle](https://github.com/assimtech/fiat-bundle) for integration with Symfony 4
+Please see [FiatBundle](https://github.com/assimtech/fiat-bundle) for integration with Symfony 4,5
